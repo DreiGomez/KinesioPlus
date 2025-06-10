@@ -1,12 +1,21 @@
+/* Josefin Sans */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+/* Work Sans & JetBrains Mono */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
-    --primary-color: #a4b5c56b;
+    --primary-color: #3072b4;
     --secondary-color: #1F4A74;
     --accent-color: #1d558d6b; 
     --gray-color: #dadadaa8;
+    --gray-color-2: #dadada; 
+
+    --primary-font: "Work Sans", sans-serif;
+    --secondary-font: "JetBrains Mono", monospace;
 }
 
-* {
-    
+h1 {
+    text-transform: uppercase;
 }
 
 /* NAVBAR */
@@ -20,6 +29,12 @@
     right: 0;
 }
 
+#info-nav {
+    background-color: var(--primary-color) !important;
+    color: white;
+    padding: 0 10rem;
+}
+
 /* When navbar has shadow (scrolled) */
 #navbar.navbar-shadow {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow appears when scrolled */
@@ -28,9 +43,10 @@
 
 #navbar li a {
     color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--primary-font);
     font-weight: 600;
     font-size: 1.4rem;
+    text-transform: uppercase;
     transition: color 0.3s ease;
 }
 
@@ -46,7 +62,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
-    min-height: 80vh;
+    min-height: 90vh;
 }
 
 #home-text {
@@ -54,39 +70,89 @@
     align-items: center;
     padding: 6rem;
     background: linear-gradient(to left, rgba(255, 255, 255, 0) , var(--secondary-color));
-    min-height: 80vh;
+    min-height: 90vh;
 }
 
 #home-page .row {
     display: flex;
     align-items: center; /* Vertical centering */
+    margin-bottom: 3rem;
 }
 
 #home-page h1 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: 400;
-    font-size: 6.5rem;
-    letter-spacing: 4px;
+    font-family: var(--primary-font);
+    font-weight: 800;
+    font-size: 6rem;
     color: white;
 }
 
 #home-page p {
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 100;
+    font-family: var(--secondary-font);
+    font-weight: 300;
     font-size: 2rem;
-    color: white;
+    color: black;
 }
+
+#home-mini {
+    margin: -9rem 0 5rem 0;
+    padding-left: 0;
+}
+
+#home-mini #first {
+    display: block;
+    background-color: var(--gray-color-2); 
+    margin: 2rem 0;
+    padding: 0;
+}
+
+#home-mini #first video {
+    margin: 0rem;
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+    border: 1px solid black;
+}
+
+#home-mini #second {
+    background-color: var(--primary-color); 
+    padding: 1rem;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;;
+    border: 1px solid black;
+}
+
+#home-mini #second img {
+    max-width: 15rem;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+#home-mini #second h1 {
+    color: white;
+    font-family: var(--primary-font);
+    font-weight: 800;
+    font-size: 3rem;
+}
+
+#home-mini #second p {
+    color: white;
+    font-family: var(--secondary-font);
+    font-size: 1.6rem;
+}
+
 
 /* SERVICES PAGE */
 #services-page {
     max-width: 100%;
-    background-color: var(--gray-color);
-    padding-top: 4rem;
+    background-color: white;
+    padding: 2rem 0;
 }
 
 #services-page h1 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: 400;
+    font-family: var(--primary-font);
+    font-weight: 800;
     font-size: 6.5rem;
     text-align: center;
     letter-spacing: 4px;
@@ -100,43 +166,63 @@
 }
 
 #services-cell {
-    background-color: white;
+    background-color: var(--gray-color-2);
     margin: 2rem;
+    border-radius: 1rem;
 }
 
 #services-cell h2 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: 400;
+    font-family: var(--primary-font);
+    font-weight: 800;
     font-size: 3rem;
     text-align: center;
 }
 
 #services-cell p {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--secondary-font);
     font-size: 1.4rem;
     margin: 0 !important;
 }
 
 /* PROMO PAGE */
 #promo-section {
-    background-color: var(--secondary-color);
+    background-image: url('imgs/blue-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     padding: 2rem 0;
 }
 
+#promo-section .row {
+    margin-right: 0;
+    height: 20rem;
+}
+
+#promo-section .col-md-4 {
+    padding: 0 4rem;
+}
+
 #promo-section h1,
+#promo-section h2,
 #promo-section h4 {
     color: white;
 }
 
-#promo-section h1 {
+#promo-section h1,
+#promo-section h2 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 6rem;
+    font-size: 4rem;
     letter-spacing: 8px;
+}
+
+#promo-section h2 {
+    font-size: 3rem;
+    letter-spacing: 4px;
 }
 
 #promo-section h4 {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     
 }
 
@@ -148,12 +234,101 @@
 }
 
 #cards-container {
-  gap: 8rem;
+    gap: 8rem;
 }
 
 .card {
-  flex: 0 1 28rem;
-  box-sizing: border-box;
+    flex: 0 1 28rem;
+    box-sizing: border-box;
+}
+
+/* MV SECTION */
+#mv-section {
+    background-color: var(--gray-color);
+    padding: 2rem 0;
+}
+
+#mv-section .row {
+    gap: 2rem;
+}
+
+#mv-section .col-md-5 {
+    background-color: white;
+    margin: 1rem 0;
+    height: 30rem;
+    width: 40rem;
+}
+
+#mv-section .transparent {
+    background-color: transparent;
+}
+
+#mv-section .col-md-5:hover {
+}
+
+/* FAQs */
+.faq-section {
+    max-width: 80% !important;
+    margin: 4rem 0;
+    color: black;
+}
+
+.faq-section .row {
+    border: 1px solid black; 
+    border-radius: 2rem; 
+    padding: 2rem;
+    color: black;
+}
+
+.faq-section h1 {
+    font-family: var(--primary-font);
+    font-size: 4rem;
+    color: black;
+}
+
+.faq-section button {
+    font-family: var(--primary-font);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: black;
+}
+
+.faq-section p {
+    font-family: var(--secondary-font);
+    color: black;
+}
+
+.faq-section .accordion-item,
+.faq-section .accordion-button,
+.faq-section .accordion-body {
+    background-color: transparent !important; /* or your desired color */
+    color: black;
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 1.5rem;
+}
+
+.faq-section .accordion-button {
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: black;
+}
+
+
+
+/* HMO SECTION */
+.hmo-section {
+    padding: 3rem;
+    margin: 4rem;
+}
+
+#splide-section {
+}
+
+#splide-section img {
+    height: 100%;
+    display: block;
+    margin: 0 auto;
 }
 
 
@@ -170,16 +345,57 @@
         min-height: 60vh;
     }
 
+    #home-page .row {
+        margin: 0;
+    }
+
     #home-page h1 {
-        font-size: 3rem;
+        font-size: 4rem;
     }
 
     #home-page p {
-        font-size: 1rem;
+        font-size: 1.5rem;
+    }
+
+    #home-mini {
+        padding: 0;
+        margin: 0;
+    }
+
+    #home-mini .row, #home-mini #first {
+        margin: 0;
+    }
+
+    #home-mini #first {
+        display: none !important;
+    }
+
+    #home-mini #first video {
+        height: 10rem;
+        margin: 2rem 0;
+    }
+
+    #home-mini #second {
+        border-radius: 0;
+    }
+
+    /* PROMO PAGE */
+    #promo-section .row {
+        height: auto;
+        border: none;
     }
 
     /* DOCTORS PAGE */
     #cards-container {
         gap: 3rem;
+    }
+
+    /* MV SECTION */
+    #mv-section .row {
+        gap: 0;
+    }
+
+    #mv-section .transparent {
+        display: none;
     }
 }
