@@ -18,21 +18,37 @@ h1 {
     text-transform: uppercase;
 }
 
+body {
+    padding-top: 2rem;
+}
+
 /* NAVBAR */
 #navbar {
     margin: 0;
     padding: .6rem 10%; /* Initial padding */
+}
+
+#info-nav {
+    background-color: var(--primary-color) !important;
+    color: black;
+    padding: 0 10rem;
+    letter-spacing: 1px;
+    font-family: var(--secondary-font);
+}
+
+.whole-nav {
+    position: fixed;
     top: 0;
     z-index: 1000;
     transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transition for both shadow and transform */
     left: 0;
     right: 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.452);
 }
 
-#info-nav {
-    background-color: var(--primary-color) !important;
+#info-nav span {
     color: white;
-    padding: 0 10rem;
+    font-size: larger;
 }
 
 /* When navbar has shadow (scrolled) */
@@ -69,7 +85,7 @@ h1 {
     display: flex;
     align-items: center;
     padding: 6rem;
-    background: linear-gradient(to left, rgba(255, 255, 255, 0) , var(--secondary-color));
+    background: linear-gradient(to left, rgba(255, 255, 255, 0) , rgba(0, 0, 0));
     min-height: 90vh;
 }
 
@@ -90,7 +106,8 @@ h1 {
     font-family: var(--secondary-font);
     font-weight: 300;
     font-size: 2rem;
-    color: black;
+    color: white;
+    text-shadow: black 4px;
 }
 
 #home-mini {
@@ -99,30 +116,34 @@ h1 {
 }
 
 #home-mini #first {
-    display: block;
-    background-color: var(--gray-color-2); 
+    background-color: var(--primary-color);
     margin: 2rem 0;
-    padding: 0;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: none;
+    box-shadow: 0 4px 6px -1px rgb(0, 0, 0);
 }
 
 #home-mini #first video {
-    margin: 0rem;
-    display: block;
+    width: 100%;
+    height: auto;
     max-width: 100%;
-    object-fit: cover;
-    border: 1px solid black;
+    object-fit: contain;
 }
 
 #home-mini #second {
-    background-color: var(--primary-color); 
-    padding: 1rem;
+    background-color: var(--gray-color-2); 
+    padding: 2rem 3rem;
     border-top-left-radius: 2rem;
-    border-bottom-left-radius: 2rem;;
-    border: 1px solid black;
+    border-bottom-left-radius: 2rem;
+    color: var(--primary-color);
+    box-shadow: 0 4px 6px -1px rgb(0, 0, 0);
 }
 
 #home-mini #second img {
-    max-width: 15rem;
+    max-width: 10rem;
     width: 100%;
     height: auto;
     display: block;
@@ -130,17 +151,36 @@ h1 {
 }
 
 #home-mini #second h1 {
-    color: white;
     font-family: var(--primary-font);
     font-weight: 800;
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 #home-mini #second p {
-    color: white;
     font-family: var(--secondary-font);
-    font-size: 1.6rem;
+    font-size: 1.3rem;
+    line-height: 2.5rem;
+    text-align: justify;
 }
+
+#home-mini #second span {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+#home-mini .what-about {
+    padding-right: 4rem;
+}
+
+#home-mini .open-hours {
+    font-family: var(--secondary-font);
+    background-color: white;
+    border-radius: 4rem;
+    width: 100%;
+    padding: .3rem 0;
+    box-shadow: 0 2px 3px -1px rgb(0, 0, 0);
+}
+
 
 
 /* SERVICES PAGE */
@@ -186,10 +226,7 @@ h1 {
 
 /* PROMO PAGE */
 #promo-section {
-    background-image: url('imgs/blue-bg.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-color: var(--secondary-color);
     padding: 2rem 0;
 }
 
@@ -234,13 +271,61 @@ h1 {
 }
 
 #cards-container {
-    gap: 8rem;
+    gap: 2rem;
 }
 
-.card {
-    flex: 0 1 28rem;
-    box-sizing: border-box;
+.flip-card {
+  width: 450px;
+  height: 500px;
+  margin: 1rem auto;
+  perspective: 1000px;
+  cursor: pointer;
 }
+
+.flip-card img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  border-radius: 1rem !important;
+  transform-style: preserve-3d;
+  box-shadow: 0 5px 7px -1px rgba(0, 0, 0, 0.651); /* Shadow appears when scrolled */
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem !important;
+}
+
+.flip-card-front {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+}
+
+.flip-card-back {
+  background-color: var(--primary-color);
+  color: white;
+  transform: rotateY(180deg);
+}
+
 
 /* MV SECTION */
 #mv-section {
@@ -274,7 +359,6 @@ h1 {
 }
 
 .faq-section .row {
-    border: 1px solid black; 
     border-radius: 2rem; 
     padding: 2rem;
     color: black;
@@ -282,20 +366,23 @@ h1 {
 
 .faq-section h1 {
     font-family: var(--primary-font);
+    font-weight: 800;
     font-size: 4rem;
     color: black;
 }
 
 .faq-section button {
     font-family: var(--primary-font);
-    font-weight: 800;
+    font-weight: 700 !important;
     text-transform: uppercase;
     color: black;
+    margin: 1.5rem 0;
 }
 
 .faq-section p {
     font-family: var(--secondary-font);
     color: black;
+    line-height: 3rem;
 }
 
 .faq-section .accordion-item,
@@ -335,6 +422,10 @@ h1 {
 /* FOR PHONE RESPONSIVENESS */
 @media (max-width: 800px) {
 
+    #info-nav {
+        display: none;
+    }
+
     /* HOME PAGE */
     #home-page {
         min-height: 60vh;
@@ -350,11 +441,11 @@ h1 {
     }
 
     #home-page h1 {
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     #home-page p {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     #home-mini {
