@@ -36,8 +36,37 @@
 
             splide.mount({ AutoScroll }); // IMPORTANT: mount the extension
         });
+
+        // Fade-up observer for elements
+        const fadeUpElements = document.querySelectorAll('.fade-up');
+
+        const fadeUpObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, { threshold: window.innerWidth <= 768 ? 0.25 : .50 }); // Trigger when 25% of the element is visible for smaller screens
+
+        fadeUpElements.forEach(element => {
+            fadeUpObserver.observe(element);
+        });
     </script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+            if (isTouchDevice) {
+            document.querySelectorAll('.flip-card').forEach(card => {
+                card.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+                });
+            });
+            }
+        });
+    </script>
 
   </head>
   <body>
@@ -99,10 +128,12 @@
                     <br>
                     <div>
                         <p>
-                            Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-                            Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                            We offer the <span>best healthcare</span> <br class="d-block d-lg-display d-xs-none">for you and your family
                         </p>
                         
+                    </div>
+                    <div class="brands mt-4">
+                        <a href="https://www.facebook.com/KinesioPlusPhysiotherapy?_rdc=1&_rdr#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                     </div>
                 </div>
             </div>
@@ -126,9 +157,9 @@
                         <h1>Who is KineioPlus?</h1>
                     </div>
 
-                    <div class="col-md-9 justify-content-center ps-5">
+                    <div class="col-md-9 justify-content-center ps-md-5 ">
                         <div class="row">
-                            <div class="col-md-6" style="padding-right: 3rem;">
+                            <div class="col-md-6 pe-md-5">
                                 <p>
                                     <span>KinesioPlus  Physiotherapy  &  Osteopathy  Center,  Inc.</span>  first  started  as  home  health  facility  in 
                                     2021  covering  some  areas  of  Bulacan  and  Quezon  City.
@@ -144,7 +175,8 @@
 
                         <div class="row mt-2">
                             <div class="col-md-3 open-hours text-center">
-                                <h2>Open Hours: <span style="font-size: 2.4rem;">7:00am - 7:00pm </span></h2>
+                                <h2 class="fs-3">Open Hours: 
+                                <br class="d-block d-md-none"><span class="fs-1 fs-md-1">9:00am - 6:00pm</span></h2>
                             </div>
                         </div>
                     </div>
@@ -155,10 +187,89 @@
 
 
     <!-- SERVICES -->
+    <div class="row mt-5">
+        <div class="col-md-3 offset-md-3"></div>
+        <div class="col-md-3 offset-md-3 section-title">
+            <h1>SERVICES</h1>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mb-4 fade-up">
+        <div class="tabs-container">
+            <div class="tabs">
+                <div class="tab active"><i class="fas fa-hands"></i><br>Manual & Specialized Therapies</div>
+                <div class="tab"><i class="fas fa-bolt"></i><br>Pain Management & Modalities</div>
+                <div class="tab"><i class="fas fa-running"></i><br>Rehabilitation Services</div>
+                <div class="tab"><i class="fas fa-dna"></i><br>Specialized Methods</div>
+                <div class="tab"><i class="fas fa-notes-medical"></i><br>Consultation & Evaluation</div>
+            </div>
+
+            <div class="content-container">
+                <div class="content active">
+                <h3>Manual & Specialized Therapies</h3>
+                <ol>
+                    <li>Osteopathy</li>
+                    <li>Orthopedic Manual Therapy</li>
+                    <li>Manual Therapy</li>
+                    <li>Craniosacral Therapy</li>
+                    <li>Visceral Manipulation</li>
+                    <li>Ligamentous Articular Strain</li>
+                    <li>Soft Tissue Manipulation</li>
+                    <li>Spinal and Joint Manipulation</li>
+                    <li>TMJ Manipulation</li>
+                    <li>Lympathetic Drainage Therapy</li>
+                    <li>Eclectic Approach</li>
+                </ol>
+                </div>
+
+                <div class="content">
+                <h3>Pain Management & Modalities</h3>
+                <ol>
+                    <li>Pain Management</li>
+                    <li>Electric Stimulation</li>
+                    <li>Hot Moist Packs</li>
+                    <li>Therapeutic Ultrasound</li>
+                    <li>Tecar Therapy</li>
+                    <li>Shockwave Therapy</li>
+                    <li>LASER Therapy</li>
+                </ol>
+                </div>
+
+                <div class="content">
+                <h3>Rehabilitation Services</h3>
+                <ol>
+                    <li>Pediatric Rehabilitation</li>
+                    <li>Stroke Rehabilitation</li>
+                    <li>Sports Recovery & Rehabilitation</li>
+                </ol>
+                </div>
+
+                <div class="content">
+                <h3>Specialized Methods</h3>
+                <ol>
+                    <li>Schroth Method for Scoliosis</li>
+                    <li>Kinesis</li>
+                    <li>Dry Needling</li>
+                    <li>Functional Exercises</li>
+                </ol>
+                </div>
+
+                <div class="content">
+                <h3>Consultation & Evaluation</h3>
+                <ol>
+                    <li>Consultation and Assessment</li>
+                    <li>Physiotherapy</li>
+                </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- (Old Services)
     <div class="container" id="services-page">
-        <h1>SERVICES</h1>
         <div class="container justify-content-center align-items-center h-100" id="services-section">
-            <div class="row justify-content-center mb-4">
+            <div class="row justify-content-center mb-4 fade-up">
 
                 <div class="col-md-5 p-4" id="services-cell">
                     <h2>SCHROTH</h2>
@@ -185,7 +296,7 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center fade-up">
                 <div class="col-md-5 p-4" id="services-cell">
                     <h2>PHYSIOTHERAPY</h2>
                     <div class="row justify-content-center m-4">
@@ -211,7 +322,7 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center fade-up">
                 <div class="col-md-5 p-4" id="services-cell">
                     <h2>CST</h2>
                     <div class="row justify-content-center m-4">
@@ -228,10 +339,10 @@
 
         </div>
     </div>
-
+-->
     <!-- PROMO -->
     <div class="container-fluid text-center" id="promo-section">
-        <div class="row justify-content-center align-items-center">
+        <div class="row justify-content-center align-items-center fade-up">
             <div class="col-md-3">
                 <h1>PROMOS & <br>PACKAGES</h1>
             </div>
@@ -248,33 +359,51 @@
 
     <!-- DOCTORS -->
     <div class="container-fluid" id="doctors-section">
-        <div class="d-flex justify-content-center flex-wrap" id="cards-container">
+        <div class="row mt-5">
+            <div class="col-md-3 offset-md-3"></div>
+            <div class="col-md-3 offset-md-3 section-title">
+                <h1>DOCTORS</h1>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center flex-wrap cards-container  fade-up">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front d-flex flex-column">
                         <img src="imgs/DRRIVERA.png" class="card-img-top" alt="Dr. Eric Rivera">
-                        <div class="card-body">
-                            <h5 class="card-title">Dr. Eric Rivera</h5>
-                            <p class="card-text">PTRP, DO-MTP, COMT</p>
+                        <div class="card-body mt-3 text-start w-100">
+                            <h1 class="card-title">Dr. Eric Rivera</h1>
+                            <p class="card-text">PTRP, DO-MTP, COMT</p><br>
                         </div>
                     </div>
                     <div class="flip-card-back">
                         hello
                     </div>
                 </div>
-                
             </div>
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front d-flex flex-column">
                         <img src="imgs/DRFELICIANO.png" class="card-img-top" alt="Dr. Eric Rivera">
-                        <div class="card-body">
-                             <h5 class="card-title">Dr. Daniel Dennison Feliciano</h5>
+                        <div class="card-body mt-3 text-start w-100">
+                             <h1 class="card-title">Dr. Daniel Dennison Feliciano</h1>
                             <p class="card-text">MD, FPARM</p>
                         </div>
                     </div>
-                    <div class="flip-card-back">
-                        hello
+                    <div class="flip-card-back d-flex flex-column justify-content-center align-items-center text-center">
+                        <div class="card-body mt-3 text-center w-100">
+                            <p class="card-title">Specialty:</p>
+                            <h1 class="card-text">Rehabilitation Medicine</h1>
+                        </div>
+
+                        <div class="card-body mt-3 text-center w-100">
+                            <p class="card-title">Consultation Availability:</p>
+                            <h1 class="card-text">Online</h1>
+                        </div>
+
+                        <div class="card-body mt-3 text-center w-100">
+                            <p class="card-title">Clinic Schedule:</p>
+                            <h1 class="card-text">Friday to Saturday, 3PM - 4PM</h1>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -282,13 +411,26 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front d-flex flex-column">
                         <img src="imgs/DRFERMO.png" class="card-img-top" alt="Dr. Eric Rivera">
-                        <div class="card-body">
-                            <h5 class="card-title">Dr. Paul Angelo Fermo</h5>
-                            <p class="card-text">MD, FPARM</p>
+                        <div class="card-body mt-3 text-start w-100">
+                            <p class="card-title">Dr. Paul Angelo Fermo</p>
+                            <h1 class="card-text">MD, FPARM</h1>
                         </div>
                     </div>
-                    <div class="flip-card-back">
-                        hello
+                    <div class="flip-card-back d-flex flex-column justify-content-center align-items-center text-center">
+                        <div class="card-body mt-3 text-center w-100">
+                            <p class="card-title">Specialty:</p>
+                            <h1 class="card-text">Rehabilitation Medicine</h1>
+                        </div>
+
+                        <div class="card-body mt-3 text-center w-100">
+                            <p class="card-title">Consultation Availability:</p>
+                            <h1 class="card-text">Online</h1>
+                        </div>
+
+                        <div class="card-body mt-3 text-center w-100">
+                            <p class="card-title">Clinic Schedule:</p>
+                            <h1 class="card-text">By appointment</h1>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -298,30 +440,64 @@
     <!-- MISSION VISION -->
     <div class="container-fluid" id="mv-section">
         <div class="container" style="gap: 2rem;">
-            <div class="row justify-content-center">
-                <div class="col-md-5">
-                    Mission
+            <div class="row justify-content-center text-center mb-2 align-items-stretch fade-up">
+                <div class="col-md-5 mv-card">
+                    <h1>MISSION</h1>
+                    <p>Our mission is to provide the <span>highest quality of Physiotherapy and Osteopathy services</span> with an 
+                    exceptional patient care and to help each patients achieve their highest level of function and 
+                    independence at a reasonable cost. </p>
                 </div>
-                <div class="col-md-5">
-                    Our Values
+                <div class="col-md-5 v-card">
+                    <h1>OUR VALUES</h1>
+                    <div class="row text-center">
+                        <!-- Column 1 -->
+                        <div class="col-md-4 text-center">
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="me-2">🤝</span> <span>Compassion</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="me-2">🛎️</span> <span>Service</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="me-2">🧭</span> <span>Integrity</span>
+                            </div>
+                        </div>
+
+                        <!-- Column 2 -->
+                        <div class="col-md-4 text-center">
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="me-2">🤝</span> <span>Teamwork</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="me-2">📋</span> <span>Accountability</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="me-2">🎓</span> <span>Continuous Education</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center text-center fade-up">
                 <div class="col-md-5 transparent"></div>
-                <div class="col-md-5">
-                    Vision
+                <div class="col-md-5 mv-card">
+                    <h1>VISION</h1>
+                    <p>To establish KinesioPlus Physiotherapy & Osteopathy Center as the <span>leading and most trusted
+                    Pain  Center  in  San  Jose  del  Monte  by  2025 </span> and  to  be  known  as  the  premier  provider  of 
+                    Physical Therapy and Osteopathy care, resulting in the highest level of independence for our 
+                    patients.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- FAQs -->
-     <div class="container faq-section">
+     <div class="container faq-section fade-up">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <h1>FAQs</h1>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 mt-3">
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
@@ -348,20 +524,20 @@
                         </h2>
                         <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                You may message our clinic's facebook page: KinesioPlus Physiotherapy
+                                You may message our clinic's facebook page: 
+                                <a href="https://www.facebook.com/KinesioPlusPhysiotherapy?_rdc=1&_rdr#" target="_blank" style="text-decoration: none;">KinesioPlus Physiotherapy</a>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                            Accordion Item #3
+                            How are you?
                         </button>
                         </h2>
                         <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                                Fine, thank you
                             </div>
                         </div>
                     </div>
@@ -370,56 +546,86 @@
         </div>
      </div>
 
-    <!-- HMOs -->
-    <div class="container-fluid hmo-section">
-        <div class="container" id="splide-section">
-            <section class="splide" aria-label="Splide Basic HTML Example">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        <li class="splide__slide">
-                            <img src="/imgs/HMOs/Intellicare_green-play.png" alt="">
-                        </li>
-                        <li class="splide__slide">
-                            <img src="/imgs/HMOs/avega.png" alt="">
-                        </li>
-                        <li class="splide__slide">
-                            <img src="/imgs/HMOs/amaphil-logo.png" alt="">
-                        </li>
-                        <li class="splide__slide">
-                            <img src="/imgs/HMOs/medicard-logo.png" alt="">
-                        </li>
-                        <li class="splide__slide">
-                            <img src="/imgs/HMOs/medocare-logo.png" alt="">
-                        </li>
-                        <li class="splide__slide">
-                            <img src="/imgs/HMOs/generali-logo.jpg" alt="">
-                        </li>
-                        <li class="splide__slide">
-                            <img src="/imgs/HMOs/valucare-logo.png" alt="">
-                        </li>
-                        <li class="splide__slide">
-                            <img src="/imgs/HMOs/lacson-logo.png" alt="">
-                        </li>
-                        <li class="splide__slide">
-                            <img src="/imgs/HMOs/pacific-cross-logo.png" alt="">
-                        </li>
-                        <li class="splide__slide">
-                            <img src="/imgs/HMOs/HPPI-logo.png" alt="">
-                        </li>
-                        <li class="splide__slide">
-                            <img src="/imgs/HMOs/sun-life-grepa-logo.png" alt="">
-                        </li>
-                        <li class="splide__slide">
-                            <img src="/imgs/HMOs/philbrit-logo.png" alt="">
-                        </li>
-                        <li class="splide__slide">
-                            <img src="/imgs/HMOs/medasia-logo.png" alt="">
-                        </li>
-                    </ul>
+    <!-- LOCATION-->
+    <div class="container-fluid location-section">
+        <div class="row">
+            <div class="col-md-7 ml-4 map-sect">
+                <div>
+                    <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
+                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=%20S.T.A.%20%20Avenue,
+                    %20%20Pecsonville%20Subdivision,%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Tungkong%20Mangga,
+                    %20CSJDM,%20Bulacan,%203023+(Your%20Business%20Name)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                    <a href="https://www.gps.ie/sport-gps/">gps watches</a></iframe>
                 </div>
-            </section>
+            </div>
+            <div class="col-md-5 d-flex align-items-center justify-content-center flex-column text-center location-text">
+                <h1 class="text-center">Where are we <span>located?</span></h1>
+                <p>(545  Unit  2,  2nd  floor  of  AWRA  Apartments,  
+                S.T.A.  Avenue,  Pecsonville Subdivision, 
+                Tungkong Mangga, CSJDM, Bulacan, 3023)</p>
+            </div>
         </div>
     </div>
+
+    <!-- HMOs -->
+    <div class="container-fluid hmo-page">
+        <div class="row">
+            <div class="col-md-3 offset-md-3"></div>
+            <div class="col-md-3 offset-md-3 section-title">
+                <h1>HMO</h1>
+            </div>
+        </div>
+        <div class="container-fluid hmo-section">
+            <div class="container" id="splide-section">
+                <section class="splide" aria-label="Splide Basic HTML Example">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <img src="/imgs/HMOs/Intellicare_green-play.png" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="/imgs/HMOs/avega.png" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="/imgs/HMOs/amaphil-logo.png" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="/imgs/HMOs/medicard-logo.png" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="/imgs/HMOs/medocare-logo.png" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="/imgs/HMOs/generali-logo.jpg" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="/imgs/HMOs/valucare-logo.png" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="/imgs/HMOs/lacson-logo.png" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="/imgs/HMOs/pacific-cross-logo.png" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="/imgs/HMOs/HPPI-logo.png" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="/imgs/HMOs/sun-life-grepa-logo.png" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="/imgs/HMOs/philbrit-logo.png" alt="">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="/imgs/HMOs/medasia-logo.png" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    
 
 
     <!-- Remove the container if you want to extend the Footer to full width. -->
@@ -441,9 +647,7 @@
               KinesioPlus Physiotherapy
             </h6>
             <p>
-              Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-              Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum 
-              Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum 
+              The FIRST and ONLY combined Physiotherapy & Osteopathy
             </p>
           </div>
           <!-- Grid column -->
@@ -533,15 +737,9 @@
                class="btn btn-outline-light btn-floating m-1"
                class="text-white"
                role="button"
+               target="_blank"
+               href="https://www.facebook.com/KinesioPlusPhysiotherapy?_rdc=1&_rdr#"
                ><i class="fab fa-facebook-f"></i
-              ></a>
-
-            <!-- Twitter -->
-            <a
-               class="btn btn-outline-light btn-floating m-1"
-               class="text-white"
-               role="button"
-               ><i class="fab fa-twitter"></i
               ></a>
 
             <!-- Google -->
@@ -552,13 +750,6 @@
                ><i class="fab fa-google"></i
               ></a>
 
-            <!-- Instagram -->
-            <a
-               class="btn btn-outline-light btn-floating m-1"
-               class="text-white"
-               role="button"
-               ><i class="fab fa-instagram"></i
-              ></a>
           </div>
           <!-- Grid column -->
         </div>
@@ -571,6 +762,65 @@
 </div>
 <!-- End of .container -->
     
+
+    <script>
+        const menuItems = document.querySelectorAll(".menu-item");
+        const serviceGroups = document.querySelectorAll(".service-group");
+
+        menuItems.forEach(item => {
+            item.addEventListener("click", () => {
+            // Remove 'active' from all menu items
+            menuItems.forEach(btn => btn.classList.remove("active"));
+            // Add 'active' to clicked item
+            item.classList.add("active");
+
+            // Show the corresponding service group
+            const category = item.dataset.category;
+            serviceGroups.forEach(group => {
+                group.classList.add("hidden");
+                if (group.id === category) {
+                group.classList.remove("hidden");
+                }
+            });
+            });
+        });
+
+       document.addEventListener("DOMContentLoaded", () => {
+            const tabs = document.querySelectorAll(".tabs-container .tab");
+            const contents = document.querySelectorAll(".tabs-container .content");
+            const container = document.querySelector(".tabs-container .content-container");
+
+            // Step 1: Determine tallest content height
+            let maxHeight = 0;
+
+            contents.forEach(content => {
+            // Temporarily show all content to measure
+            content.classList.add("measuring");
+            content.style.display = "block";
+            const height = content.offsetHeight;
+            if (height > maxHeight) maxHeight = height;
+            content.classList.remove("measuring");
+            content.style.display = ""; // Revert inline style
+            });
+
+            container.style.minHeight = maxHeight + "px";
+
+            // Step 2: Tab switching logic
+            const removeActiveClass = () => {
+            tabs.forEach(t => t.classList.remove("active"));
+            contents.forEach(c => c.classList.remove("active"));
+            };
+
+            tabs.forEach((tab, i) => {
+            tab.addEventListener("click", () => {
+                removeActiveClass();
+                tabs[i].classList.add("active");
+                contents[i].classList.add("active");
+            });
+            });
+        });
+
+    </script>
 
     <script src=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js "></script>
     <script src="https://kit.fontawesome.com/cb34fc9474.js" crossorigin="anonymous"></script>
