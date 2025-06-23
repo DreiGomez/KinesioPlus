@@ -2,17 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 /* Work Sans & JetBrains Mono */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+/* Brittany Signature */
+@import url('https://fonts.cdnfonts.com/css/brittany-signature');
 
 :root {
-    --primary-color: #3072b4;
-    --secondary-color: #1F4A74;
-    --tertiary-color: #6baff3;
+    --primary-color: #283b57;
     --accent-color: #1d558d6b; 
     --gray-color: #dadadaa8;
     --gray-color-2: #dadada; 
 
     --primary-font: "Work Sans", sans-serif;
     --secondary-font: "JetBrains Mono", monospace;
+    --tertiary-font: "Brittany Signature"
 }
 
 h1 {
@@ -34,6 +35,27 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* POPOVER */
+.custom-popover .popover-header,
+.custom-popover .popover-body {
+    background-color: var(--primary-color);
+    color: white;
+    font-family: var(--primary-font);
+    font-size: 1.1rem;
+    padding: 1rem;
+}
+
+.custom-popover {
+    border-color: var(--gray-color);
+}
+
+.custom-popover .popover-body {
+    color: var(--primary-color);
+    background-color: white;
+}
+
+
 
 /* NAVBAR */
 #navbar {
@@ -80,7 +102,7 @@ body {
 }
 
 #navbar li a:hover {
-    color: #007bff;
+    color: var(--gray-color);
     text-decoration: none;
 }
 
@@ -98,6 +120,7 @@ body {
     display: flex;
     align-items: center;
     padding: 6rem;
+    padding-left: 1rem;
     background: linear-gradient(to left, rgba(255, 255, 255, 0) , rgba(0, 0, 0));
     min-height: 90vh;
 }
@@ -111,21 +134,23 @@ body {
 #home-page h1 {
     font-family: var(--primary-font);
     font-weight: 800;
-    font-size: 6rem;
+    font-size: 4rem;
     color: white;
 }
 
 #home-page p {
-    font-family: var(--secondary-font);
+    font-family: var(--tertiary-font);
     font-weight: 300;
-    font-size: 2rem;
+    font-size: 5.2rem;
     color: white;
     text-shadow: black 4px;
+    margin: 1rem 0;
 }
 
-#home-page p span {
+#home-page h1 span {
     font-weight: 800;
-    color: var(--secondary-color);
+    font-size: 4.8rem;
+    color: var(--primary-color);
     text-shadow: 
         -.7px -.7px 0 var(--gray-color),
         .5px -.5px 0 var(--gray-color),
@@ -142,9 +167,9 @@ body {
 }
 
 #home-page a i:hover {
-    color: var(--secondary-color); /* or any accent color */
+    color: var(--primary-color); /* or any accent color */
     transform: scale(1.2) rotate(5deg);
-    text-shadow: 0 0 10px var(--secondary-color);
+    text-shadow: 0 0 10px var(--primary-color);
 }
 
 
@@ -155,7 +180,7 @@ body {
 }
 
 #home-mini #first {
-    background-color: var(--tertiary-color);
+    background-color: var(--primary-color);
     margin: 2rem 0;
     padding: 1rem;
     padding-left: 0;
@@ -197,6 +222,7 @@ body {
 }
 
 #home-mini #second p {
+    color: black;
     font-family: var(--secondary-font);
     font-size: 1.3rem;
     line-height: 2.5rem;
@@ -204,8 +230,8 @@ body {
 }
 
 #home-mini #second span {
-    color: var(--secondary-color);
-    font-weight: 700;
+    color: var(--primary-color);
+    font-weight: 800;
 }
 
 #home-mini .what-about {
@@ -237,7 +263,7 @@ body {
 
 .tabs-container .tabs {
     max-width: 300px;
-    background: var(--secondary-color);
+    background: var(--gray-color);
     color: #fff;
     text-transform: uppercase;
     text-align: center;
@@ -245,6 +271,7 @@ body {
     font-family: var(--primary-font);
     font-weight: 800;
     text-transform: uppercase;
+    border-bottom-left-radius: 3rem;
 }
 
 .tabs-container .tabs .tab {
@@ -299,6 +326,13 @@ body {
     color: var(--primary-color);
 }
 
+.popover-item {
+  display: inline-block; /* Make sure it has a box */
+  position: relative;    /* Allows better alignment */
+  cursor: pointer;       /* Optional: makes it feel interactive */
+}
+
+
 
 /* (Old Services)
 #services-page {
@@ -342,8 +376,7 @@ body {
 
 /* PROMO PAGE */
 #promo-section {
-    background-color: var(--secondary-color);
-    padding: 2rem 0;
+    background-color: var(--gray-color);
 }
 
 #promo-section .row {
@@ -358,25 +391,34 @@ body {
 #promo-section h1,
 #promo-section h2,
 #promo-section h4 {
-    color: white;
+    color: var(--primary-color);
 }
 
 #promo-section h1,
 #promo-section h2 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: var(--primary-font);
+    font-weight: 800;
     font-size: 4rem;
-    letter-spacing: 8px;
+}
+
+#promo-section h1 span {
+    color: var(--primary-color);
+    font-family: var(--tertiary-font);
+    font-size: 2.5rem;
+    position: relative;
+    top: -2.7rem;
 }
 
 #promo-section h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     letter-spacing: 4px;
 }
 
 #promo-section h4 {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.7rem;
-    
+    color: black;
+    font-family: var(--secondary-font);
+    font-size: 1.3rem;
+    line-height: 2rem;
 }
 
 /* DOCTORS PAGE */
@@ -391,7 +433,7 @@ body {
 }
 
 .section-title {
-    background-color: var(--tertiary-color);
+    background-color: var(--primary-color);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.603); /* Shadow appears when scrolled */
     margin: 2rem 0;
     border-bottom-left-radius: 2rem;
@@ -485,9 +527,15 @@ body {
 }
 
 .flip-card-back {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--gray-color-2);
+    color: var(--primary-color);
     transform: rotateY(180deg);
+}
+
+.flip-card-back .card-schedules h1 {
+    font-family: var(--primary-font);
+    font-weight: 800;
+    font-size: 1.5rem;
 }
 
 
@@ -500,29 +548,40 @@ body {
 #mv-section .container {
     max-width: 80%;
 }
+
 #mv-section .row {
     gap: 3rem;
+    align-items: stretch;
 }
 
-#mv-section .col-md-5 {
+.m-card, .v-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* optional: vertically center content */
     background-color: white;
     color: white;
-    margin: 1rem 0;
-    width: 40rem;
-    padding: 3rem;
+    padding: 1rem 3rem;
     border-radius: 3rem;
     box-shadow: 0 4px 6px -1px rgb(0, 0, 0);
     transition: all 0.3s ease;
 }
 
-#mv-section .col-md-5 h1 {
+.m-card {
+    background-color: var(--primary-color);
+}
+
+.v-card {
+    color: var(--primary-color);
+}
+
+.m-card h1, .v-card h1 {
     font-family: var(--primary-font);
     font-weight: 800;
     font-size: 4rem;
-    color: var(--secondary-color);
 }
 
-#mv-section .col-md-5 p {
+.m-card p, .v-card p {
     font-family: var(--secondary-font);
     font-size: 1rem;
     font-weight: 600;
@@ -531,10 +590,10 @@ body {
     margin-top: .5rem;
 }
 
-#mv-section .col-md-5 span {
+.m-card span, .v-card span {
     font-size: 1.2rem;
     text-transform: uppercase;
-    color: var(--secondary-color);
+    color: var(--gray-color);
     text-shadow: 
         -.7px -.7px 0 var(--gray-color),
         .5px -.5px 0 var(--gray-color),
@@ -542,20 +601,61 @@ body {
         .5px  .5px 0 var(--gray-color); /* subtle blur for depth */
 }
 
-#mv-section .transparent {
-    background-color: transparent;
-    box-shadow: none;
+.v-card span{
+    color: var(--primary-color);
+    text-shadow: 
+        -.7px -.7px 0 var(--primary-color),
+        .5px -.5px 0 var(--primary-color),
+        -.5px .5px 0 var(--primary-color),
+        .5px  .5px 0 var(--primary-color); /* subtle blur for depth */
 }
 
-#mv-section .col-md-5:hover {
+.m-card:hover, .v-card:hover {
     transform: scale(1.05) rotate(1deg);
 }
 
-.mv-card {
-    background-color: var(--tertiary-color) !important;
+.our-values h1 {
+    font-family: var(--tertiary-font);
+    font-weight: 500;
+    font-size: 3.5rem;
+    margin: 4rem 0;
+    color: var(--primary-color);
+
 }
 
-.v-card {
+.val-card, .val-card-2 {
+    background-color: white;
+    font-family: var(--secondary-font);
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    padding: 1.5rem 0;
+    border-radius: 1.2rem;
+    border: 1px solid black;
+    transition: all 0.2s ease;
+}
+
+.val-card i, .val-card-2 i {
+    font-size: 1.5rem;
+}
+
+.val-card-2 {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.val-card:hover {
+    color: white;
+    background-color: var(--primary-color);
+}
+
+.val-card-2:hover {
+    color: var(--primary-color);
+    background-color: white;
+}
+
+.val-card:hover, .val-card-2:hover {
+    transform: scale(1.07);
 }
 
 /* FAQs */
@@ -634,6 +734,7 @@ body {
 
 
 .location-section .row h1 {
+    color: var(--gray-color) !important;
     font-family: var(--primary-font);
     font-weight: 800;
     font-size: 3rem;
@@ -641,13 +742,8 @@ body {
 }
 
 .location-section .row h1 span {
-    color: var(--secondary-color);
+    color: white;
     font-size: 6rem;
-    text-shadow: 
-        -.7px -.7px 10px white,
-        .5px -.5px 0 var(--gray-color),
-        -.5px .5px 0 white,
-        .5px  .5px 0 var(--gray-color); /* subtle blur for depth */;
 }
 
 .location-section .row p {
@@ -655,13 +751,12 @@ body {
     font-family: var(--secondary-font);
     font-weight: 500;
     font-size: 1.3rem;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     font-style: italic;
     letter-spacing: 1.5px;
     padding: 1.5rem;
     background-color: white;
     border-radius: 1.2rem;
-    box-shadow: 2px 2px 10px rgb(0, 0, 0);
 }
 
 /* HMO SECTION */
@@ -682,6 +777,15 @@ body {
     margin: 0 auto;
 }
 
+/* FOOTER */
+.footer-container {
+    max-width: 100% !important; 
+    padding: 0;
+}
+
+.footer-container footer {
+    background-color: var(--primary-color);
+}
 
 /* FOR PHONE RESPONSIVENESS */
 @media (max-width: 800px) {
