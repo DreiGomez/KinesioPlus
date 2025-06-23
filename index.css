@@ -55,6 +55,29 @@ body {
     background-color: white;
 }
 
+#home-page,
+#services-page,
+#doctors-section,
+#faq-section,
+#location-page,
+#contact {
+  scroll-margin-top: 8rem;
+}
+
+/* SWAL */
+.my-swal-1 {
+    font-family: var(--primary-font);
+    font-weight: 100;
+    font-size: 1.2rem;
+    border-radius: 2rem;
+}
+
+.swal-span-1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
 
 
 /* NAVBAR */
@@ -92,6 +115,12 @@ body {
     transform: translateY(-5px); /* Shrink and move the navbar */
 }
 
+.nav-item {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
 #navbar li a {
     color: black;
     font-family: var(--primary-font);
@@ -104,6 +133,20 @@ body {
 #navbar li a:hover {
     color: var(--gray-color);
     text-decoration: none;
+}
+
+#navbar #contact-alert {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 1.2rem;
+    transition: all .5s ease;
+    border: 1px solid black;
+    padding: 0.2rem 1rem;
+}
+
+#navbar #contact-alert:hover {
+    background-color: white;
+    color: black;
 }
 
 /* HOME PAGE */
