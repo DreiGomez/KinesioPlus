@@ -22,6 +22,7 @@ h1 {
 
 body {
     padding-top: 2rem;
+    overflow-x: hidden;
 }
 
 
@@ -55,6 +56,7 @@ body {
     background-color: white;
 }
 
+/* SCROLLSPY */
 #home-page,
 #services-page,
 #doctors-section,
@@ -305,6 +307,8 @@ body {
 }
 
 .tabs-container .tabs {
+    display: flex;
+    flex-direction: column;
     max-width: 300px;
     background: var(--gray-color);
     color: #fff;
@@ -376,47 +380,6 @@ body {
 }
 
 
-
-/* (Old Services)
-#services-page {
-    max-width: 100%;
-    background-color: white;
-    padding: 2rem 0;
-}
-
-#services-page h1 {
-    font-family: var(--primary-font);
-    font-weight: 800;
-    color: white;
-    padding: 2rem 0;
-    padding-left: 2rem;
-}
-
-#services-section {
-    margin: 0 auto;
-    width: 95%;
-    max-width: 100%;
-}
-
-#services-cell {
-    background-color: var(--gray-color-2);
-    margin: 2rem;
-    border-radius: 1rem;
-}
-
-#services-cell h2 {
-    font-family: var(--primary-font);
-    font-weight: 800;
-    font-size: 3rem;
-    text-align: center;
-}
-
-#services-cell p {
-    font-family: var(--secondary-font);
-    font-size: 1.4rem;
-    margin: 0 !important;
-} */
-
 /* PROMO PAGE */
 #promo-section {
     background-color: var(--gray-color);
@@ -464,8 +427,13 @@ body {
     line-height: 2rem;
 }
 
+#promo-section .promo-center {
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+}
+
 /* DOCTORS PAGE */
-#doctors-section {
+.doctors-section {
     align-items: center;
     padding: 0;
     padding-bottom: 4rem;
@@ -752,9 +720,9 @@ body {
 }
 
 /* LOCATION SECTION */
-.location-section {
+#location-page.location-section {
     background-color: var(--primary-color);
-    padding: 0 15rem !important;
+    padding: 0 15rem;
     box-shadow: 0 4px 10px -3px rgb(0, 0, 0);
 }
 
@@ -764,8 +732,8 @@ body {
     padding-bottom: 0;
 }
 
-.location-text {
-    padding-left: 5rem !important;
+.location-section .location-text {
+    padding-left: 5rem;
 }
 
 .location-section iframe {
@@ -790,16 +758,19 @@ body {
 }
 
 .location-section .row p {
-    margin-top: 2rem;
+    margin-top: 1rem;
     font-family: var(--secondary-font);
     font-weight: 500;
-    font-size: 1.3rem;
+    font-size: 1rem;
     color: var(--primary-color);
-    font-style: italic;
     letter-spacing: 1.5px;
     padding: 1.5rem;
     background-color: white;
     border-radius: 1.2rem;
+}
+
+.location-section .row p span {
+    font-weight: 800;
 }
 
 /* HMO SECTION */
@@ -807,7 +778,15 @@ body {
     background-image: url(imgs/flipped-minimalist-blue-white-wave-background\ copy.png);
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 4rem 0;
+    padding-bottom: 4rem;
+}
+
+.hmo-page .section-title {
+    background-color: var(--gray-color);
+}
+
+.hmo-page .section-title h1 {
+    color: black;
 }
 
 .hmo-section {
@@ -834,16 +813,42 @@ body {
 @media (max-width: 800px) {
 
     body {
-        padding-top: 5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
     }
 
     #info-nav {
         display: none;
+        padding: 0;
     }
+
+    .whole-nav #nav-title {
+        padding: 0;
+        margin-left: 0 !important;
+    }
+
+    #navbar img {
+        height: 1rem;
+    }
+
 
     /* HOME PAGE */
     #home-page {
         min-height: 60vh;
+    }
+
+    #home-page h1 {
+        font-size: 2rem;
+    }
+
+    #home-page h1 span {
+        font-size: 2.2rem;
+    }
+
+    #home-page p {
+        font-size: 3rem;
     }
 
     #home-text {
@@ -892,6 +897,7 @@ body {
 
     #home-mini #second p {
         padding: 0;
+        font-size: 1rem;
     }
 
     /* SERVICE PAGE */
@@ -903,18 +909,66 @@ body {
         font-size: 2.5rem;
     }
 
+    .tabs-container {
+        flex-direction: column; /* Stack vertically */
+        width: 90%;
+        max-width: 100%;
+        margin: 20px auto;
+        border-radius: 1rem;
+    }
+
+    .tabs-container .tabs {
+        flex-direction: row;
+        max-width: 100%;
+        border-radius: 1rem 1rem 0 0;
+        flex-wrap: wrap;
+    }
+
+    .tabs-container .tabs .tab {
+        flex: 1 1 20%;
+        font-size: 0.9rem;
+        padding: 12px;
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    .tabs-container .tab-label {
+        display: none;
+    }
+
+    .tabs-container .content-container .content {
+        padding: 20px;
+    }
+
+    .tabs-container .content-container h3 {
+        font-size: 1.5rem;
+    }
+
+    .tabs-container .content-container li {
+        font-size: 0.95rem;
+    }
+
     /* PROMO PAGE */
+    #promo-section {
+        padding: 2rem 0;
+    }
+    
     #promo-section .row {
         height: auto;
         border: none;
     }
+    
+    #promo-section .promo-center {
+        border: none;
+        padding-bottom: 2rem;
+    }
+
 
     /* DOCTORS PAGE */
     .cards-container {
         gap: 0rem;
         padding: 0 1rem;
     }
-
     .section-title {
         margin: 2rem 0;
         border-bottom-left-radius: 0rem;
@@ -936,7 +990,80 @@ body {
         gap: 0;
     }
 
-    #mv-section .transparent {
+    #mv-section .container {
+        max-width: 90%;
+    }
+
+    .m-card, .v-card {
+        padding: 1rem 1.5rem;
+    }
+
+    .m-card h1, .v-card h1 {
+        font-size: 2.5rem;
+    }
+
+    .m-card p, .v-card p {
+        font-size: .8rem;
+    }   
+
+    .m-card span, .v-card span {
+        font-size: 1rem;
+    }  
+    
+    /* FAQ SECTION */
+    .faq-section {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem 0;
+    }
+
+    .faq-section .row {
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+
+    .faq-section h1 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .faq-section button {
+        font-size: 1rem !important;
+        padding: 0;
+    }
+
+    .faq-section .accordion-body{
+        font-size: .8rem !important;
+        padding: 0;
+    }
+
+    .faq-section .accordion-body p {
+        line-height: 1.5rem;
+    }
+    /* LOCATION PAGE */
+    #location-page.location-section {
+        padding: 1rem 2rem;
+    }
+    .map-sect {
         display: none;
+    }
+    .location-section .location-text {
+        padding-left: 0;
+    }
+    .location-section .location-text {
+        padding: 0;
+    }
+    .location-section .location-text h1 {
+        font-size: 2rem;
+    }
+
+    .location-section .location-text h1 span {
+        font-size: 3rem;
+    }
+
+    .location-section .location-text p {
+        font-size: 1rem;
     }
 }

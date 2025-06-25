@@ -60,14 +60,18 @@
 
             // Popover for .popover-item
             document.querySelectorAll('.popover-item').forEach(el => {
+                const triggerMode = window.innerWidth <= 768 ? 'click' : 'hover';
+
                 new bootstrap.Popover(el, {
                     title: el.getAttribute('data-title'),
                     content: el.getAttribute('data-content'),
-                    trigger: 'hover',
+                    trigger: triggerMode,
                     placement: 'right',
                     customClass: 'custom-popover'
                 });
             });
+
+
 
             // Flip card for touch devices
             const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
@@ -113,7 +117,7 @@
             e.preventDefault(); // stop normal link behavior
                 Swal.fire({
                     title: 'Contact Us',
-                    html: '<i class="fa-solid fa-phone"></i> <span class="swal-span-1">09258284101</span><br><i class="fa-solid fa-envelope"></i> <span class="swal-span-1">kplusphysio@gmail.com</span> <br><i class="fa-solid fa-location-dot"></i> <span class="swal-span-1"> 545 S.T.A. Avenue,Pecsonville Subd., Tungkong Mangga, CSJDM, Bulacan </span><br><br>Thank you for choosing KinesioPlus Physiotherapy!',
+                    html: '<i class="fa-solid fa-phone"></i> <span class="swal-span-1">09258284101</span><br><i class="fa-solid fa-envelope"></i> <span class="swal-span-1">kplusphysio@gmail.com</span><br><i class="fa-solid fa-location-dot"></i> <span class="swal-span-1"> 545 S.T.A. Avenue,Pecsonville Subd., Tungkong Mangga, CSJDM, Bulacan </span><br><br>Thank you for choosing KinesioPlus Physiotherapy!',
                     confirmButtonText: 'Okay',
                     customClass: {
                         popup: 'my-swal-1'
@@ -243,20 +247,21 @@
 
 
     <!-- SERVICES -->
-    <div class="row mt-5" id="services-page">
-        <div class="col-md-3 offset-md-3"></div>
-        <div class="col-md-3 offset-md-3 section-title">
-            <h1>SERVICES</h1>
+     <div class="container-fluid" id="services-section">
+        <div class="row" id="services-page">
+            <div class="col-md-3 offset-md-3"></div>
+            <div class="col-md-3 offset-md-3 section-title">
+                <h1>SERVICES</h1>
+            </div>
         </div>
-    </div>
     <div class="d-flex justify-content-center mb-4 fade-up">
         <div class="tabs-container">
             <div class="tabs">
-                <div class="tab active"><i class="fas fa-hands"></i><br>Manual & Specialized Therapies</div>
-                <div class="tab"><i class="fas fa-bolt"></i><br>Pain Management & Modalities</div>
-                <div class="tab"><i class="fas fa-running"></i><br>Rehabilitation Services</div>
-                <div class="tab"><i class="fas fa-dna"></i><br>Specialized Methods</div>
-                <div class="tab"><i class="fas fa-notes-medical"></i><br>Consultation & Evaluation</div>
+                <div class="tab active"><i class="fas fa-hands"></i><br><span class="tab-label">Manual & Specialized Therapies</span></div>
+                <div class="tab"><i class="fas fa-bolt"></i><br><span class="tab-label">Pain Management & Modalities</span></div>
+                <div class="tab"><i class="fas fa-running"></i><br><span class="tab-label">Rehabilitation Services</span></div>
+                <div class="tab"><i class="fas fa-dna"></i><br><span class="tab-label">Specialized Methods</span></div>
+                <div class="tab"><i class="fas fa-notes-medical"></i><br><span class="tab-label">Consultation & Evaluation</span></div>
             </div>
 
             <div class="content-container">
@@ -300,7 +305,7 @@
                         data-content="Good for: jaw pain, TMJ disorders, and headaches.">TMJ Manipulation</p></li>
 
                     <li><p class="mb-0 popover-item" 
-                        data-title="A gentle massage technique that encourages natural drainage of the lymph system to reduce swelling and boost immunity." 
+                        data-title="A gentle manual technique that encourages natural drainage of the lymph system to reduce swelling and boost immunity." 
                         data-content="Good for: swelling, detox, and immune support.">Lymphatic Drainage Therapy</p></li>
 
                     <li><p class="mb-0 popover-item" 
@@ -396,89 +401,15 @@
         </div>
     </div>
   </div>
-</div>
+    
 
-<!-- (Old Services)
-    <div class="container" id="services-page">
-        <div class="container justify-content-center align-items-center h-100" id="services-section">
-            <div class="row justify-content-center mb-4 fade-up">
-
-                <div class="col-md-5 p-4" id="services-cell">
-                    <h2>SCHROTH</h2>
-                    <div class="row justify-content-center m-4">
-                        <div class="col-md-6">
-                            <p>- Lorem Ipsum Lorem Ipsum Lorem Ipsum <br><br> - Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
-                        </div>
-                        <div class="col-md-6">
-                            <p>- Lorem Ipsum Lorem Ipsum Lorem Ipsum <br><br> - Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-5 p-4" id="services-cell">
-                    <h2>OSTEOPATHY</h2>
-                    <div class="row justify-content-center m-4">
-                        <div class="col-md-6">
-                            <p>- Lorem Ipsum Lorem Ipsum Lorem Ipsum <br><br> - Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
-                        </div>
-                        <div class="col-md-6">
-                            <p>- Lorem Ipsum Lorem Ipsum Lorem Ipsum <br><br> - Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center fade-up">
-                <div class="col-md-5 p-4" id="services-cell">
-                    <h2>PHYSIOTHERAPY</h2>
-                    <div class="row justify-content-center m-4">
-                        <div class="col-md-6">
-                            <p>- Lorem Ipsum Lorem Ipsum Lorem Ipsum <br><br> - Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
-                        </div>
-                        <div class="col-md-6">
-                            <p>- Lorem Ipsum Lorem Ipsum Lorem Ipsum <br><br> - Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-5 p-4" id="services-cell">
-                    <h2>ORTHOPEDIC MANUAL THERAPY</h2>
-                    <div class="row justify-content-center m-4">
-                        <div class="col-md-6">
-                            <p>- Lorem Ipsum Lorem Ipsum Lorem Ipsum <br><br> - Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
-                        </div>
-                        <div class="col-md-6">
-                            <p>- Lorem Ipsum Lorem Ipsum Lorem Ipsum <br><br> - Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center fade-up">
-                <div class="col-md-5 p-4" id="services-cell">
-                    <h2>CST</h2>
-                    <div class="row justify-content-center m-4">
-                        <div class="col-md-6">
-                            <p>- Lorem Ipsum Lorem Ipsum Lorem Ipsum <br><br> - Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
-                        </div>
-                        <div class="col-md-6">
-                            <p>- Lorem Ipsum Lorem Ipsum Lorem Ipsum <br><br> - Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
--->
     <!-- PROMO -->
     <div class="container-fluid text-center" id="promo-section">
         <div class="row justify-content-center align-items-center fade-up">
             <div class="col-md-3">
                 <h1>PROMOS & <br><span>PACKAGES</span></h1>
             </div>
-            <div class="col-md-4" style="border-right: 5px solid black; border-left: 5px solid black;">
+            <div class="col-md-4 promo-center">
                 <h2>6-Session Packages</h2>
                 <h4 class="mt-3">Avail our 6-session package and get 1 FREE physiotherapy session, FREE osteopathic consultation and FREE follow-up consultation.</h4>
             </div>
@@ -490,8 +421,8 @@
     </div>
 
     <!-- DOCTORS -->
-    <div class="container-fluid" id="doctors-section">
-        <div class="row mt-5">
+    <div class="container-fluid doctors-section">
+        <div class="row">
             <div class="col-md-3 offset-md-3"></div>
             <div class="col-md-3 offset-md-3 section-title">
                 <h1>DOCTORS</h1>
@@ -537,7 +468,7 @@
                     <div class="flip-card-back d-flex flex-column justify-content-center align-items-center text-center">
                         <div class="card-body mt-3 text-center w-100">
                             <p class="card-title">Specialty:</p>
-                            <h1 class="card-text">Rehabilitation Medicine</h1>
+                            <h1 class="card-text">Osteopathy Medicine</h1>
                         </div>
 
                         <div class="card-body mt-3 text-center w-100">
@@ -549,7 +480,6 @@
                             <p class="card-title">Clinic Schedule:</p>
                             <div class="card-schedules">
                                 <h1 class="card-text">Tuesday to Thursday, <br>1PM - 4PM</h1><hr>
-                                <h1 class="card-text">Friday, 1PM - 2PM</h1><hr>
                                 <h1 class="card-text">Saturday to Sunday, <br>10AM - 4PM</h1>
                             </div>
                         </div>
@@ -578,7 +508,7 @@
 
                         <div class="card-body mt-3 text-center w-100">
                             <p class="card-title">Clinic Schedule:</p>
-                            <h1 class="card-text">By appointment</h1>
+                            <h1 class="card-text">Daily, by appointment</h1>
                         </div>
                     </div>
                 </div>
@@ -602,7 +532,7 @@
                     <div class="v-card">
                         <h1>VISION</h1>
                         <p>To establish KinesioPlus Physiotherapy & Osteopathy Center as the <span>leading and most trusted
-                        Pain  Center  in  San  Jose  del  Monte  by  2025 </span> and  to  be  known  as  the  premier  provider  of 
+                        Pain  Center  in  San  Jose  del  Monte </span> and  to  be  known  as  the  premier  provider  of 
                         Physical Therapy and Osteopathy care, resulting in the highest level of independence for our 
                         patients.</p>
                     </div>
@@ -687,12 +617,16 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                            How are you?
+                            Do I need doctor's referral?
                         </button>
                         </h2>
                         <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                Fine, thank you
+                                <p>
+                                    No, you do not need a doctor's referral to book an appointment with us. 
+                                    However, if you have a specific medical condition or injury, it is advisable 
+                                    to consult with your doctor first to ensure that physiotherapy is appropriate for you.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -704,20 +638,20 @@
     <!-- LOCATION-->
     <div class="container-fluid location-section" id="location-page">
         <div class="row">
-            <div class="col-md-7 ml-4 map-sect">
+            <div class="col-md-6 ml-4 map-sect">
                 <div>
                     <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=%20S.T.A.%20%20Avenue,
-                    %20%20Pecsonville%20Subdivision,%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Tungkong%20Mangga,
-                    %20CSJDM,%20Bulacan,%203023+(Your%20Business%20Name)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                    <a href="https://www.gps.ie/sport-gps/">gps watches</a></iframe>
+                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=14.784945140789945,121.07378840446474+(My%20Business%20Name)
+                    &amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.mapsdirections.info/calcular-la-población-en-un-mapa"></a></iframe>
                 </div>
             </div>
-            <div class="col-md-5 d-flex align-items-center justify-content-center flex-column text-center location-text">
+            <div class="col-md-6 d-flex align-items-center justify-content-center flex-column text-center location-text">
                 <h1 class="text-center">Where are we <span>located?</span></h1>
-                <p>(545  Unit  2,  2nd  floor  of  AWRA  Apartments,  
-                S.T.A.  Avenue,  Pecsonville Subdivision, 
-                Tungkong Mangga, CSJDM, Bulacan, 3023)</p>
+                <p>We are located at <span>545 S.T.A. Avenue, Pecsonville Subd., Tungkong Mangga,  CSJDM, Bulacan.</span> <br><br>
+                    Landmark: Petron gas station near Brigino Hospital, front of SM San Jose del Monte. <br><br>
+                    We are located INSIDE THE ONE-WAY ROAD. (ONE WAY, NO ENTRY SIGN)
+                    Please note that our clinic is located at 2nd floor of the building, only accessible by stairs. <br><br>
+                    Use Waze to drive to KinesioPlus Physiotherapy & Osteopathy Center: <a href="https://waze.com/ul/hwdwh55e0n" target="_blank">click here</a></p>
             </div>
         </div>
     </div>
@@ -807,40 +741,21 @@
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">Go to</h6>
             <p>
-              <a class="text-white">Home</a>
+              <a class="text-white" href="#home-page">Home</a>
             </p>
             <p>
-              <a class="text-white">Services</a>
+              <a class="text-white" href="#services-page">Services</a>
             </p>
             <p>
-              <a class="text-white">Doctors</a>
+              <a class="text-white" href="#doctors-section">Doctors</a>
             </p>
             <p>
-              <a class="text-white">FAQs</a>
+              <a class="text-white" href="#faq-section">FAQs</a>
             </p>
           </div>
           <!-- Grid column -->
 
           <hr class="w-100 clearfix d-md-none" />
-
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold">
-              Useful links
-            </h6>
-            <p>
-              <a class="text-white">Your Account</a>
-            </p>
-            <p>
-              <a class="text-white">Become an Affiliate</a>
-            </p>
-            <p>
-              <a class="text-white">Shipping Rates</a>
-            </p>
-            <p>
-              <a class="text-white">Help</a>
-            </p>
-          </div>
 
           <!-- Grid column -->
           <hr class="w-100 clearfix d-md-none" />
@@ -870,9 +785,9 @@
           <div class="col-md-7 col-lg-8 text-center text-md-start">
             <!-- Copyright -->
             <div class="p-3">
-              © 2020 Copyright:
+              © 2025 Copyright:
               <a class="text-white" href="https://mdbootstrap.com/"
-                 >Kinesioooo.com</a
+                 >KinesioPlus.com</a
                 >
             </div>
             <!-- Copyright -->
@@ -896,7 +811,9 @@
                class="btn btn-outline-light btn-floating m-1"
                class="text-white"
                role="button"
-               ><i class="fab fa-google"></i
+               target="_blank"
+               href="https://www.instagram.com/kinesioplus_rehab/"
+               ><i class="fab fa-instagram"></i
               ></a>
 
           </div>
