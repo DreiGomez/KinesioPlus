@@ -59,7 +59,7 @@ body {
 /* SCROLLSPY */
 #home-page,
 #services-page,
-#doctors-section,
+#doctors-page,
 #faq-section,
 #location-page,
 #contact {
@@ -387,7 +387,7 @@ body {
 
 #promo-section .row {
     margin-right: 0;
-    height: 20rem;
+    padding: 3rem 0;
 }
 
 #promo-section .col-md-4 {
@@ -430,6 +430,12 @@ body {
 #promo-section .promo-center {
     border-left: 5px solid black;
     border-right: 5px solid black;
+}
+
+#promo-section .promo-terms {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 500;
 }
 
 /* DOCTORS PAGE */
@@ -782,7 +788,7 @@ body {
 }
 
 .hmo-page .section-title {
-    background-color: var(--gray-color);
+    background-color: var(--gray-color-2);
 }
 
 .hmo-page .section-title h1 {
@@ -810,6 +816,135 @@ body {
 }
 
 /* FOR PHONE RESPONSIVENESS */
+@media (max-width: 1200px) {
+
+    body {
+        padding-top: 3rem;
+    }
+
+    .section-title {
+        width: 100% !important;
+    }
+
+    #navbar {
+        padding: .6rem 5%;
+    }
+
+    #info-nav {
+        padding: 0 5%;
+    }
+
+    #navbar img {
+        height: 1.5rem;
+    }
+
+    #navbar li a {
+        font-size: 1.2rem;
+    }
+
+    #navbar #contact-alert {
+        padding: .2rem .5rem;
+        font-size: .8rem;
+    }
+
+    /* HOME PAGE */
+    #home-page h1 {
+        font-size: 3rem;
+    }
+
+    #home-page h1 span, #home-page p  {
+        font-size: 3.5rem;
+    }
+
+    #home-mini #second {
+        padding: 1rem 2rem;
+    }
+
+    #home-mini #second h1 {
+        font-size: 1.5rem;
+    }
+
+    #home-mini #second p {
+        font-size: 1rem;
+    }
+
+    #home-mini .open-hours h2, #home-mini .open-hours span{
+        padding: .3rem 1rem;
+        font-size: 1.3rem !important;
+    }
+
+    /* SERVICE PAGE */
+    .tabs-container {
+        max-width: 90%;
+    }
+
+    /* PROMO PAGE */
+    #promo-section {
+        height: auto;
+        padding: 2rem 0;
+    }
+    #promo-section h1 {
+        font-size: 2rem;
+    }
+
+    #promo-section h1 span {
+        font-size: 1.5rem;
+        top: 0;
+    }
+
+    #promo-section h2 {
+        font-size: 1.5rem;
+    }
+
+    #promo-section h4 {
+        font-size: 1.2rem;
+        line-height: 1.7rem;
+        font-weight: 500;
+    }
+
+    #promo-section .col-md-4 {
+        padding: 0 1.3rem;
+    }
+
+    #promo-section .promo-center {
+        padding: 0 2rem;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+    }
+
+    /* MV SECTION */
+    #mv-section .container {
+        max-width: 100%;
+    }
+
+    .m-card h1, .v-card h1 {
+        font-size: 2.5rem;
+    }
+
+    .val-card, .val-card-2,
+    .val-card i, .val-card-2 i {
+        font-size: 1rem;
+    }
+
+    /* LOCATION SECTION */
+    #location-page.location-section {
+        padding: 0 2rem;
+    }
+
+    .location-section .location-text {
+        padding-left: 1rem;
+    }
+
+    .location-section .row h1, .location-section .row h1 span {
+        font-size: 1.5rem;
+    }
+
+    /* HMO SECTION */
+    .hmo-page .section-title h1 {
+        padding: 1rem;
+    }
+}
+
 @media (max-width: 800px) {
 
     body {
@@ -950,19 +1085,23 @@ body {
 
     /* PROMO PAGE */
     #promo-section {
-        padding: 2rem 0;
+        padding: 2rem 1.2rem;
     }
     
     #promo-section .row {
         height: auto;
         border: none;
+        padding: 0;
+        margin: 0;
     }
     
-    #promo-section .promo-center {
-        border: none;
-        padding-bottom: 2rem;
+    #promo-section .col-md-4 {
+        padding: 1rem 0;
     }
 
+    #promo-section .promo-center {
+        border: none;
+    }
 
     /* DOCTORS PAGE */
     .cards-container {
@@ -983,6 +1122,26 @@ body {
         padding: .5rem 0;
         padding-left: 2rem;
         font-size: 1.5rem !important;
+    }
+
+    .flip-card img {
+        height: 80%;
+        width: 100%;
+        object-fit: cover;
+        object-position: top center;
+    }
+
+    .flip-card-front .card-title { 
+        font-size: 1.3rem;
+    }
+
+    .flip-card-front .card-text {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .flip-card-front br {
+        display: none;
     }
 
     /* MV SECTION */
@@ -1042,6 +1201,7 @@ body {
     .faq-section .accordion-body p {
         line-height: 1.5rem;
     }
+    
     /* LOCATION PAGE */
     #location-page.location-section {
         padding: 1rem 2rem;
@@ -1066,4 +1226,20 @@ body {
     .location-section .location-text p {
         font-size: 1rem;
     }
+
+    /* HMO SECTION */
+    .hmo-page {
+        padding-bottom: 1rem;
+    }
+
+    .hmo-page .section-title h1 {
+        font-size: 1rem !important;
+    }
+    
+    #splide-section img {
+        height: 50%;
+        display: block;
+        margin: 0 auto;
+    }
+
 }
