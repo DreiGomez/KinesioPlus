@@ -1106,7 +1106,7 @@ body {
         padding: 0 1rem;
     }
     .section-title {
-        margin: 1rem 0;
+        margin: 2rem 0;
         border-bottom-left-radius: 0rem;
         border-bottom-right-radius: 2rem;
         width: 50% !important;
@@ -1117,7 +1117,7 @@ body {
         font-weight: 800;
         color: white;
         padding: .5rem 0;
-        padding-left: 2rem;
+        padding-left: .5rem;
         font-size: 1.5rem !important;
     }
 
