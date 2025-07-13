@@ -1122,8 +1122,8 @@ body {
     }
 
     .doctors-section .section-title h1 {
-        padding-left: 0; 
-        font-size: 1rem !important;
+        padding-left: .3rem; 
+        font-size: 1.5rem !important;
     }
 
     .flip-card img {
