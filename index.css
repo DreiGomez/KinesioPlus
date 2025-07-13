@@ -1117,8 +1117,13 @@ body {
         font-weight: 800;
         color: white;
         padding: .5rem 0;
-        padding-left: .5rem;
+        padding-left: 2rem;
         font-size: 1.5rem !important;
+    }
+
+    .doctors-section .section-title h1 {
+        padding-left: 0; 
+        font-size: 1rem !important;
     }
 
     .flip-card img {
